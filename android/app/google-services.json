@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "508673898139",
+    "firebase_url": "https://react-native-app-4551d.firebaseio.com",
+    "project_id": "react-native-app-4551d",
+    "storage_bucket": "react-native-app-4551d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508673898139:android:0ebdf2343979a88b",
+        "android_client_info": {
+          "package_name": "com.reactnavigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508673898139-p0lcjp827mmo3t9sin2p7t5ghiqk6o81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANTgaRQVoA8tkBNwPG5HsVB3l6xsuzeSM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

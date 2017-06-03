@@ -3,9 +3,9 @@ import {Text,TouchableHighlight,Image} from 'react-native'
 import PropertyListComponent from '../components/PropertyListComponent'
 import styles from '../styles/Styles'
 
-class PageDComponent extends PropertyListComponent {
+class PageFComponent extends PropertyListComponent {
   static navigationOptions = ({ navigation }) => ({
-    title:'Page D',
+    title:'Page F',
     headerLeft :
     <TouchableHighlight onPress={() => {navigation.navigate('DrawerOpen')}}>
       <Image
@@ -18,11 +18,11 @@ class PageDComponent extends PropertyListComponent {
   render() {
     return (
       <Text>
-        Page D
+        Page F
       </Text>
     );
   }
 
 }
 
-export default PageDComponent
+export default PageFComponent

@@ -12,6 +12,8 @@ import PageB2Component from '../components/PageB2Component'
 import PageDetailComponent from '../components/PageDetailComponent'
 import PageCComponent from '../components/PageCComponent'
 import PageDComponent from '../components/PageDComponent'
+import PageEComponent from '../components/PageEComponent'
+import PageFComponent from '../components/PageFComponent'
 
 const MenuATabNavigator = TabNavigator({
   Page1: {
@@ -108,6 +110,38 @@ const MenuBTabNavigator = TabNavigator({
   backBehavior: 'none',
 });
 
+const TestTabNavigator = TabNavigator({
+  Page1: {
+    screen: PageCComponent,
+  },
+  Page2: {
+    screen: PageDComponent,
+  },
+  Page3: {
+    screen: PageEComponent,
+  },
+  Page4: {
+    screen: PageFComponent,
+  },
+}, {
+  tabBarOptions: {
+    activeTintColor: '#000000',
+    inactiveTintColor:'#808080',
+    style: {
+      backgroundColor: '#ffffff',
+    },
+    indicatorStyle: {
+      backgroundColor: '#FF4081',
+    },
+  },
+  animationEnabled: false,
+  backBehavior: 'none',
+});
+
+const TestStackNavigator = StackNavigator({
+  Home: { screen: TestTabNavigator }
+});
+
 const MenuButton = (
 	<View>
     <TouchableHighlight
@@ -141,7 +175,7 @@ const MenuBStackNavigator = StackNavigator({
 });
 
 const MenuCStackNavigator = StackNavigator({
-  Home: { screen: PageCComponent }
+  Home: { screen: TestTabNavigator }
 },{
     navigationOptions : {
       headerStyle:{backgroundColor:'#3F51B5'},
@@ -198,38 +232,6 @@ const DrawerPageNavigator = DrawerNavigator({
       <Text style={{marginLeft:16,marginTop:8,marginBottom:8}}>natan@qlapa.com</Text>
       <DrawerItems {...props} />
     </View>
-});
-
-const TestTabNavigator = TabNavigator({
-  Page1: {
-    screen: PageCComponent,
-  },
-  Page2: {
-    screen: PageDComponent,
-  },
-  Page3: {
-    screen: PageCComponent,
-  },
-  Page4: {
-    screen: PageDComponent,
-  },
-}, {
-  tabBarOptions: {
-    activeTintColor: '#000000',
-    inactiveTintColor:'#808080',
-    style: {
-      backgroundColor: '#ffffff',
-    },
-    indicatorStyle: {
-      backgroundColor: '#FF4081',
-    },
-  },
-  tabBarPosition: 'bottom',
-  backBehavior: 'none',
-});
-
-const TestStackNavigator = StackNavigator({
-  Home: { screen: TestTabNavigator }
 });
 
 export default DrawerPageNavigator

@@ -73,6 +73,8 @@ class PropertyListComponent extends Component {
       })
       this.state.datasource.map((value)=>
         {
+          if(value.price==null)
+            value.price='0';
           realm.write(() => {
              realm.create('Property', {
                title:value.title.toString(),

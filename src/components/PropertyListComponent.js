@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {Text,View,Button,Image,ListView,ScrollView,TouchableNativeFeedback } from 'react-native'
+import {Text,View,Button,Image,ListView,TouchableNativeFeedback  } from 'react-native'
 import styles from '../styles/Styles'
 import FCM, {FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType} from 'react-native-fcm';
 import realm from './realm';
+import FlatList from 'react-native/Libraries/Lists/FlatList';
 
 class PropertyListComponent extends Component {
   static navigationOptions = {
@@ -12,10 +13,8 @@ class PropertyListComponent extends Component {
   constructor(props) {
      super(props);
      console.log = () => {};
-     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
      this.state = {
-        datasource:ds.cloneWithRows([]),
-        dataSource:ds
+        datasource:[]
      }
   }
 
@@ -94,50 +93,51 @@ class PropertyListComponent extends Component {
    });
 }
 
-  render() {
-    const rows = this.state.dataSource.cloneWithRows(this.state.datasource||[])
+  renderSeparator = () => {
     return (
-      <ScrollView>
-        <ListView
-           style = {styles.listContainer}
-           dataSource = {rows}
-           renderRow = {
-              (rowData) => (
-                <TouchableNativeFeedback onPress={() => this.props.navigation.navigate('Detail', { data: rowData})}>
-                  <View>
+      <View style={styles.line}/>
+    );
+  };
+
+  render() {
+    //const rows = this.state.dataSource.cloneWithRows(this.state.datasource||[]);
+    return (
+        <FlatList
+           data = {this.state.datasource}
+           renderItem = {({item}) => (
+                <TouchableNativeFeedback onPress={() => this.props.navigation.navigate('Detail', { data: item})}>
                   <View style={styles.propertyListContainer}>
                       <View style={styles.propertyImageContainer}>
                         <Image
-                          source={{uri: rowData.thumb_url}}
+                          source={{uri: item.thumb_url}}
                           style={styles.propertyIcon}
                         />
                       </View>
                       <View style = {styles.propertyDetailContainer}>
                         <Text style={styles.propertyListText}>
-                          {rowData.title}
+                          {item.title}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {rowData.summary}
+                          {item.summary}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {rowData.bedroom_number}
+                          {item.bedroom_number}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {rowData.bathroom_number}
+                          {item.bathroom_number}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {rowData.price}
+                          {item.price}
                         </Text>
                       </View>
-                   </View>
-                   <View style={styles.line}>
-                   </View>
                    </View>
                  </TouchableNativeFeedback >
               )
            }
+           keyExtractor={item => item.title}
+           ItemSeparatorComponent={this.renderSeparator}
+           initialNumToRender={3}
         />
-      </ScrollView>
     );
   }
 }

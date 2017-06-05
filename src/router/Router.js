@@ -76,8 +76,8 @@ const MenuATabNavigator = TabNavigator({
     animationEnabled: false,
     activeTintColor: '#000000',
     inactiveTintColor:'#808080',
-    scrollEnabled: true,
-    showIcon:true,
+    scrollEnabled: false,
+    showIcon:false,
     style: {
       backgroundColor: '#ffffff',
     },

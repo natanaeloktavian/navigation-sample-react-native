@@ -11,6 +11,7 @@ class PropertyListComponent extends Component {
 
   constructor(props) {
      super(props);
+     console.log = () => {};
      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
      this.state = {
         datasource:ds.cloneWithRows([]),

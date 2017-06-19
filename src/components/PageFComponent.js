@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import {Text,TouchableHighlight,Image} from 'react-native'
-import PropertyListComponent from '../components/PropertyListComponent'
 import styles from '../styles/Styles'
 
-class PageFComponent extends PropertyListComponent {
+class PageFComponent extends Component {
   static navigationOptions = ({ navigation }) => ({
     title:'Page F',
     headerLeft :

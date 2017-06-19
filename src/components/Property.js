@@ -1,4 +1,4 @@
-import Realm from 'realm';
+/*import Realm from 'realm';
 
 class Property extends Realm.Object {}
 Property.schema = {
@@ -15,3 +15,4 @@ Property.schema = {
 };
 
 export default new Realm({schema: [Property]});
+*/

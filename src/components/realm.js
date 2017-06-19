@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 import Realm from 'realm';
 
 //class Property extends Realm.Object {}

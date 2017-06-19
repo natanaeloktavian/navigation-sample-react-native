@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Text,View,Button,Image,ListView,TouchableNativeFeedback  } from 'react-native'
+import {Text,View,Image,ListView,TouchableNativeFeedback} from 'react-native'
 import styles from '../styles/Styles'
 import FCM, {FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType} from 'react-native-fcm';
 import realm from './realm';
@@ -121,20 +121,20 @@ class PropertyListComponent extends Component {
                           {item.summary}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {item.bedroom_number}
+                          {'Bedroom : '+item.bedroom_number}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {item.bathroom_number}
+                          {'Bathroom : '+item.bathroom_number}
                         </Text>
                         <Text style={styles.propertyListText}>
-                          {item.price}
+                          {'Price : '+item.price}
                         </Text>
                       </View>
                    </View>
                  </TouchableNativeFeedback >
               )
            }
-           keyExtractor={item => item.title}
+           keyExtractor={item => item.thumb_url}
            ItemSeparatorComponent={this.renderSeparator}
            initialNumToRender={3}
         />

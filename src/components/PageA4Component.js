@@ -3,7 +3,7 @@ import {Text,TouchableHighlight,Image} from 'react-native'
 import PropertyListComponent from '../components/PropertyListComponent'
 import styles from '../styles/Styles'
 
-class PageA4Component extends PropertyListComponent {
+class PageA4Component extends Component {
   static navigationOptions = ({ navigation }) => ({
     title:'Oxford',
     headerLeft :
@@ -15,9 +15,10 @@ class PageA4Component extends PropertyListComponent {
     </TouchableHighlight>
   });
 
-  componentDidMount(){
-    this.getData('Oxford');
-    super.componentDidMount();
+  render(){
+    return(
+      <PropertyListComponent city={'Oxford'} navigation={this.props.navigation}/>
+    )
   }
 }
 

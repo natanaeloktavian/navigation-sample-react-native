@@ -18,41 +18,9 @@ class PropertyListComponent extends Component {
      }
   }
 
-  registerPNS(){
-    FCM.getFCMToken().then(token => {
-            console.log('Debug Token : '+token)
-        });
-    this.notificationListener = FCM.on(FCMEvent.Notification, async (notif) => {
-        // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
-        if(notif.local_notification){
-          //this is a local notification
-        }
-        else {
-          this.showLocalNotification(notif);
-        }
-        if(notif.opened_from_tray){
-        }
-
-    });
-    this.refreshTokenListener = FCM.on(FCMEvent.RefreshToken, (token) => {
-        console.log(token)
-    });
-  }
-
   componentDidMount(){
-
-  }
-
-  showLocalNotification(notif) {
-    var data = JSON.parse(notif.data);
-    FCM.presentLocalNotification({
-      title: data.title,
-      body: data.message,
-      priority: "high",
-      //click_action: notif.click_action,
-      show_in_foreground: true,
-      local: true
-    });
+    if(this.props.city!=null)
+      this.getData(this.props.city);
   }
 
  getData(city) {
@@ -100,7 +68,6 @@ class PropertyListComponent extends Component {
   };
 
   render() {
-    //const rows = this.state.dataSource.cloneWithRows(this.state.datasource||[]);
     return (
         <FlatList
            data = {this.state.datasource}
